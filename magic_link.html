@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Magic Link Authentication</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-pink-100 text-gray-900 min-h-screen">
+    <header class="bg-white shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-indigo-700">Passwordless Auth</h1>
+            <nav class="hidden md:flex space-x-6">
+              <a class="px-3 py-2 text-indigo-600 font-medium hover:text-indigo-800 transition relative group" href="index.html">
+                  Home
+                  <span class="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+              </a>
+              <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="otp.html">OTP</a>
+              <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="magic_link.html">Magic Link</a>
+              <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="biometrics.html">Biometrics</a>
+              <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="device_auth.html">Device Auth</a>
+              <a class="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition" href="login.php">
+                  <i class="fas fa-sign-in-alt mr-2"></i>Login
+              </a>
+          </nav>
+        </div>
+    </header>
+    
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 animate-fade-in">
+                <h2 class="text-4xl font-bold text-indigo-700 mb-4">Magic Link Authentication</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-700 mb-6">
+                    <i class="fas fa-magic text-purple-500 mr-2"></i>
+                    Passwordless login with a single click
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-10 transform transition hover:scale-[1.01] hover:shadow-xl duration-300">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-link text-purple-500 text-2xl mr-3"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800">How Magic Links Work</h3>
+                </div>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Magic link authentication eliminates passwords by sending users a unique, time-limited URL to their registered email address. When clicked, this link automatically authenticates the user without requiring any credentials to be entered. The link contains a cryptographically secure token that verifies the user's identity when they return to your application.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    This method is particularly effective for mobile users as it often detects when the email is opened on the same device, enabling seamless one-tap authentication. Magic links can be implemented to work across devices by including device recognition or requiring a secondary verification step.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white rounded-xl shadow-lg p-8 transform transition hover:scale-[1.01] hover:shadow-xl duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-thumbs-up text-green-500 text-2xl mr-3"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800">Benefits</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        <span class="font-semibold text-green-600">Exceptional User Experience:</span> Magic links provide the simplest possible authentication flow - users just click a link in their email. There are no passwords to remember or codes to enter.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        <span class="font-semibold text-green-600">Reduced Support Costs:</span> Eliminates password-related support tickets (resets, lockouts, etc.) which account for 20-50% of all IT help desk requests.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        <span class="font-semibold text-green-600">Mobile Optimization:</span> Works particularly well on mobile devices where users can easily switch between email and your app with a single tap.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 transform transition hover:scale-[1.01] hover:shadow-xl duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-exclamation-triangle text-red-500 text-2xl mr-3"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800">Considerations</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        <span class="font-semibold text-red-600">Email Security Dependency:</span> The security of magic links depends entirely on the security of the user's email account. If their email is compromised, so is their access to your service.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        <span class="font-semibold text-red-600">Delivery Reliability:</span> Email delivery can be delayed or blocked by spam filters, potentially locking users out of their accounts temporarily.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        <span class="font-semibold text-red-600">Cross-Device Challenges:</span> Users opening the link on a different device than where they initiated login may experience friction unless you implement cross-device detection.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-purple-50 rounded-xl shadow-lg p-8 mb-10 border-l-4 border-purple-500 animate-pulse-slow">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-lock text-purple-600 text-2xl mr-3"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800">Security Implementation</h3>
+                </div>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Magic links should be single-use and expire quickly (typically within 5-15 minutes). Implement rate limiting to prevent brute force attacks (e.g., max 5 magic link requests per hour per email). Include the user's IP address in the token verification to prevent link sharing.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    For sensitive applications, consider adding a second factor or step-up authentication after the magic link is used. Always provide clear information in the email about where the login request originated (location, device, time) so users can identify suspicious activity.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Use cryptographically secure tokens (JWT with proper signing is common) and ensure your verification endpoint is protected against timing attacks. The link should be HTTPS-only and consider implementing additional browser fingerprinting for enhanced security.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8 transform transition hover:scale-[1.01] hover:shadow-xl duration-300">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-envelope-open-text text-purple-500 text-2xl mr-3"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800">Email Design Best Practices</h3>
+                </div>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    The magic link email should be immediately recognizable as coming from your service with clear branding. Use action-oriented language like "Click here to sign in to [YourApp]" rather than technical terms. Include the expiration time prominently ("This link expires in 15 minutes").
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Provide contextual information about the login attempt (location, device type, time) to help users identify suspicious activity. Include a "Not you?" link that allows reporting suspicious activity and immediately revokes the token.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    For the best mobile experience, ensure your email is responsive and the magic link button is large enough to tap easily (minimum 48x48px). Consider including a "Copy link" option for users who might want to paste it into a different browser or device.
+                </p>
+            </div>
+            
+            <div class="mt-12 bg-white rounded-xl shadow-lg p-8 transform transition hover:scale-[1.01] hover:shadow-xl duration-300">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-random text-purple-500 text-2xl mr-3"></i>
+                    <h3 class="text-2xl font-semibold text-gray-800">Implementation Options</h3>
+                </div>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    <span class="font-semibold text-purple-600">Standalone Magic Links:</span> Simple implementation where clicking the link logs the user in immediately. Best for low-risk applications or as part of a multi-factor flow.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    <span class="font-semibold text-purple-600">Magic Link + Confirmation Page:</span> After clicking, users see a confirmation page showing login details before final authentication. Provides better security transparency.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    <span class="font-semibold text-purple-600">Cross-Device Flow:</span> When login is initiated on one device but completed on another, you can show a confirmation code on the original device that must be entered on the target device.
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-white border-t mt-12 py-6 text-center text-sm text-gray-500">
+        © 2025 Passwordless Auth. All rights reserved.
+    </footer>
+
+    <style>
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-pulse-slow {
+            animation: pulse 6s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.005); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</body>
+</html>

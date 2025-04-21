@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Device-Based Authentication</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-cyan-100 text-gray-900 min-h-screen">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-indigo-700 flex items-center">
+                <i class="fas fa-fingerprint mr-2 text-indigo-500"></i> Passwordless Auth
+            </h1>
+            <nav class="hidden md:flex space-x-6">
+              <a class="px-3 py-2 text-indigo-600 font-medium hover:text-indigo-800 transition relative group" href="index.html">
+                  Home
+                  <span class="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
+              </a>
+              <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="otp.html">OTP</a>
+              <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="magic_link.html">Magic Link</a>
+              <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="biometrics.html">Biometrics</a>
+              <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="device_auth.html">Device Auth</a>
+              <a class="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition" href="login.php">
+                  <i class="fas fa-sign-in-alt mr-2"></i>Login
+              </a>
+          </nav>
+            <button class="md:hidden text-indigo-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 animate__animated animate__fadeIn">
+                <h2 class="text-4xl md:text-5xl font-bold text-indigo-700 mb-6">
+                    <i class="fas fa-mobile-alt mr-3 text-blue-500"></i> Device-Based Authentication
+                </h2>
+                <div class="w-24 h-2 bg-gradient-to-r from-blue-400 to-indigo-600 mx-auto mb-8 rounded-full"></div>
+                <p class="text-xl text-gray-700 mb-8">
+                    Secure authentication using hardware devices or software tokens that provide robust protection against phishing and account takeovers.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-12 animate__animated animate__fadeInUp">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">How It Works</h3>
+                </div>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Device-based authentication relies on cryptographic keys stored securely on a physical device like a YubiKey, smartphone, or dedicated security token. When logging in, the device generates a cryptographic proof that verifies your identity without transmitting secrets over the network. This approach is built on standards like WebAuthn and FIDO2, ensuring interoperability across platforms.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Unlike traditional passwords, device authentication is inherently resistant to phishing because the cryptographic proof is unique to each website. Even if a user is tricked into visiting a fake site, the authentication attempt won't succeed because the cryptographic signature won't match the legitimate domain.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-8 animate__animated animate__fadeInLeft">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Advantages</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        <span class="font-semibold text-green-600">Unmatched Security:</span> Device authentication provides the highest level of security available today, resistant to phishing, man-in-the-middle attacks, and credential stuffing. The private keys never leave the device, making them impossible to steal remotely.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        <span class="font-semibold text-green-600">User Experience:</span> Once set up, authentication becomes as simple as touching a button or using biometrics on your device—no passwords to remember or type. Many solutions work across multiple devices for convenience.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        <span class="font-semibold text-green-600">Compliance Ready:</span> Meets stringent security requirements for industries like finance, healthcare, and government. Supports multi-factor authentication with a single action.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 animate__animated animate__fadeInRight">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-exclamation-triangle text-yellow-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Considerations</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        <span class="font-semibold text-yellow-600">Device Dependency:</span> Users must have their authentication device available when logging in. Lost or damaged devices can lock users out of their accounts unless backup methods are properly configured.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        <span class="font-semibold text-yellow-600">Initial Setup:</span> Requires more steps to register devices compared to traditional passwords. Users may need education about the importance of registering backup devices.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        <span class="font-semibold text-yellow-600">Cost Factors:</span> While software tokens are free, hardware keys involve purchase costs. Organizations must weigh these against the security benefits and reduced support costs from password resets.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-indigo-700 rounded-xl shadow-lg p-8 text-white animate__animated animate__fadeIn">
+                <div class="flex items-center mb-6">
+                    <div class="bg-white p-3 rounded-full mr-4">
+                        <i class="fas fa-lightbulb text-indigo-700 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Implementation Guide</h3>
+                </div>
+                <p class="mb-4 leading-relaxed opacity-90">
+                    For developers implementing device authentication, the WebAuthn API provides the foundation. This W3C standard is supported by all major browsers and platforms. Start by adding WebAuthn registration flows that allow users to add their security keys or platform authenticators (like Touch ID or Windows Hello).
+                </p>
+                <p class="mb-6 leading-relaxed opacity-90">
+                    Always provide users with backup options—either multiple registered devices or alternative authentication methods. Consider progressive enrollment, allowing users to add device authentication after initial password login, with clear explanations of the security benefits.
+                </p>
+                <div class="bg-indigo-800 p-4 rounded-lg">
+                    <div class="flex items-start">
+                        <i class="fas fa-lock mt-1 mr-3 text-blue-300"></i>
+                        <div>
+                            <h4 class="font-bold mb-2">Security Best Practices</h4>
+                            <ul class="list-disc list-inside space-y-1 opacity-90">
+                                <li>Enforce user verification (PIN or biometrics) for high-value actions</li>
+                                <li>Track device metadata to detect suspicious authentication attempts</li>
+                                <li>Combine with risk-based authentication for additional context</li>
+                                <li>Provide clear recovery options that don't compromise security</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer class="bg-white border-t mt-12 py-8 text-center">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-gray-500 hover:text-indigo-600 transition">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-indigo-600 transition">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-indigo-600 transition">
+                    <i class="fab fa-discord text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-indigo-600 transition">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+            </div>
+            <p class="text-sm text-gray-500">
+                © 2025 Passwordless Auth. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation trigger for scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate__animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(entry.target.dataset.animate);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
