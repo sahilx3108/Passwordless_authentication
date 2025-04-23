@@ -127,6 +127,14 @@ echo "<script>alert('Email id already assicated with another account.');</script
         .input-focus:focus {
             transform: translateY(-2px);
         }
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        .input-error {
+            border-color: #ef4444 !important;
+        }
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center bg-pattern">
@@ -143,7 +151,7 @@ echo "<script>alert('Email id already assicated with another account.');</script
                 </div>
             </div>
             <div class="px-6 py-8">
-                <form method="post" class="space-y-6">
+                <form method="post" class="space-y-6" id="signupForm" onsubmit="return validateForm()">
                     <div class="space-y-2">
                         <label for="username" class="block text-sm font-medium text-gray-700">Full Name</label>
                         <div class="relative">
@@ -156,6 +164,7 @@ echo "<script>alert('Email id already assicated with another account.');</script
                                 class="input-focus pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 placeholder="Enter your full name">
                         </div>
+                        <div id="usernameError" class="error-message"></div>
                     </div>
                     <div class="space-y-2">
                         <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
@@ -170,6 +179,7 @@ echo "<script>alert('Email id already assicated with another account.');</script
                                 class="input-focus pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 placeholder="Enter your email">
                         </div>
+                        <div id="emailError" class="error-message"></div>
                     </div>
                     <div class="space-y-2">
                         <label for="contactnumber" class="block text-sm font-medium text-gray-700">Contact Number</label>
@@ -183,6 +193,7 @@ echo "<script>alert('Email id already assicated with another account.');</script
                                 class="input-focus pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 placeholder="Enter your contact number">
                         </div>
+                        <div id="contactError" class="error-message"></div>
                     </div>
                     <div class="space-y-2">
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
@@ -196,11 +207,7 @@ echo "<script>alert('Email id already assicated with another account.');</script
                                 class="input-focus pl-10 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 placeholder="Enter your password">
                         </div>
-                    </div>
-                    <div>
-                        <a href="resend-otp.php" class="text-sm font-medium text-indigo-600 hover:text-indigo-500 transition-colors duration-200">
-                            Resend OTP
-                        </a>
+                        <div id="passwordError" class="error-message"></div>
                     </div>
                     <div>
                         <button type="submit" name="submit"
@@ -223,5 +230,51 @@ echo "<script>alert('Email id already assicated with another account.');</script
             </div>
         </div>
     </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+            
+            // Reset error messages and styles
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            document.querySelectorAll('input').forEach(el => el.classList.remove('input-error'));
+            
+            // Validate username
+            const username = document.getElementById('username').value.trim();
+            if (username.length < 3) {
+                document.getElementById('usernameError').textContent = 'Username must be at least 3 characters long';
+                document.getElementById('username').classList.add('input-error');
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                document.getElementById('email').classList.add('input-error');
+                isValid = false;
+            }
+            
+            // Validate contact number
+            const contact = document.getElementById('contactnumber').value.trim();
+            const contactRegex = /^[0-9]{10}$/;
+            if (!contactRegex.test(contact)) {
+                document.getElementById('contactError').textContent = 'Please enter a valid 10-digit phone number';
+                document.getElementById('contactnumber').classList.add('input-error');
+                isValid = false;
+            }
+            
+            // Validate password
+            const password = document.getElementById('password').value;
+            if (password.length < 8) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long';
+                document.getElementById('password').classList.add('input-error');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+    </script>
 </body>
 </html> 
