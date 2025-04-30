@@ -28,15 +28,16 @@
                 <h1 class="text-2xl font-bold text-indigo-700">Passwordless Auth</h1>
             </div>
             <nav class="hidden md:flex space-x-6">
-                <a class="px-3 py-2 text-indigo-600 font-medium hover:text-indigo-800 transition relative group" href="index.html">
+                <a class="px-3 py-2 text-indigo-600 hover:text-indigo-800 transition relative group" href="index.html">
                     Home
                     <span class="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
                 </a>
-                <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="otp.html">OTP</a>
+                <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="otp.html" >OTP</a>
                 <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="magic_link.html">Magic Link</a>
                 <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="biometrics.html">Biometrics</a>
                 <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="device_auth.html">Device Auth</a>
-                <a class="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition" href="login.php">
+                <a class="px-3 py-2 text-gray-600 hover:text-indigo-600 transition" href="feedback.php" target="_blank">Feedback</a>
+                <a class="px-3 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition" href="login.php" target="_blank">
                     <i class="fas fa-sign-in-alt mr-2"></i>Login
                 </a>
             </nav>
@@ -53,7 +54,7 @@
                 Secure, seamless login experiences without the hassle of passwords. Reduce friction and eliminate security risks.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="magic_link.html" class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">
+                <a href="#signup" class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">
                     <i class="fas fa-rocket mr-2"></i> Get Started
                 </a>
                 <a href="#features" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:bg-opacity-10 transition transform hover:scale-105">
@@ -184,7 +185,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-indigo-700 text-white">
+    <section id="signup" class="py-20 bg-indigo-700 text-white">
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Ditch Passwords?</h2>
@@ -192,9 +193,10 @@
                     Join thousands of businesses that have eliminated password-related support costs and security risks with our passwordless authentication solutions.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="index.php" class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">
+                    <a href="index.php" target="_blank" class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">
                         <i class="fas fa-user-plus mr-2"></i> Sign Up Free
                     </a>
+    
                 </div>
             </div>
         </div>
@@ -227,13 +229,14 @@
                         <li><a href="docs.html" class="text-gray-400 hover:text-white transition">Documentation</a></li>
                         <li><a href="case-studies.html" class="text-gray-400 hover:text-white transition">Case Studies</a></li>
                         <li><a href="security.html" class="text-gray-400 hover:text-white transition">Security</a></li>
+                        <li><a href="feedback.php" class="text-gray-400 hover:text-white transition">Feedback</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold mb-4 text-lg">Connect</h4>
                     <div class="flex space-x-4 mb-4">
                         <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-github"></i></a>
+                        <a href="" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-github"></i></a>
                         <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-linkedin"></i></a>
                         <a href="#" class="text-gray-400 hover:text-white text-xl transition"><i class="fab fa-discord"></i></a>
                     </div>
