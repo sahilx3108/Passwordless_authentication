@@ -18,11 +18,12 @@ $emailstatus=$result->isEmailVerify;
 $fname=$result->userName;
 $uid=$result->id;
 }
+// In login.php, update the redirect
 if($emailstatus==1){
-$_SESSION['ulogin']=$uid;
-$_SESSION['fname']=$fname;
-echo "<script type='text/javascript'> document.location = 'welcome.php'; </script>";
-} else{
+    $_SESSION['ulogin']=$uid;
+    $_SESSION['fname']=$fname;
+    echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+}else{
 echo "<script>alert('Email not verified. Please verify for email by entrying otp sent on your email');</script>";	
 }} else{
     
@@ -136,12 +137,11 @@ echo "<script>alert('Email not verified. Please verify for email by entrying otp
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <div class="text-sm">
-                            <a href="resend-otp.php" class="font-medium text-indigo-600 hover:text-indigo-500 transition-colors duration-200">
-                                Resend OTP
-                            </a>
-                        </div>
-                    </div>
+    <div class="text-sm space-x-4">
+        <a href="forgot-password.php" class="text-indigo-600 hover:text-indigo-500 transition">Forgot Password?</a>
+    </div>
+</div>
+
 
                     <div>
                         <button type="submit" name="login" 
@@ -157,7 +157,7 @@ echo "<script>alert('Email not verified. Please verify for email by entrying otp
                 </form>
                 <div class="mt-6 text-center text-sm">
                     <span class="text-gray-600">Don't have an account?</span>
-                    <a href="index.php" class="font-medium text-indigo-600 hover:text-indigo-500 transition-colors duration-200">
+                    <a href="index.php?action=signup" class="font-medium text-indigo-600 hover:text-indigo-500 transition-colors duration-200">
                         Sign up here
                     </a>
                 </div>
